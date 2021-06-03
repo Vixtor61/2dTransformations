@@ -6,8 +6,8 @@ import javax.swing.*;
 
 
 public class DrawPanel extends JPanel{
-	int stroke_size =5;
-	Square sqr = new Square(200, 200, 100);
+	int stroke_size =2;
+	Square sqr = new Square(200, 200, 5);
  
 
  DrawPanel(){

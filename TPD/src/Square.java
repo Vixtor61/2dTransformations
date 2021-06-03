@@ -43,8 +43,10 @@ public class Square {
 			break;
 		}
 		case "Rotate": {
+			int teta = (a + a) / a;
 			for (int i = 0; i < N_OF_VERTICES; i++) {
-				trans.resize(cords[i], a, a);
+
+				trans.rotate(cords[i], 0.45);
 			}
 			break;
 		}
@@ -58,10 +60,8 @@ public class Square {
 		for (int i = 0; i < N_OF_VERTICES; i++) {
 			// System.out.print("");
 			System.out.print("(" + cords[i].x + " " + cords[i].y + ")");
-
 		}
 		System.out.print("\n");
-
 	}
 
 }

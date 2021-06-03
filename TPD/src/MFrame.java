@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.*;
@@ -7,26 +6,33 @@ import javax.swing.*;
 public class MFrame extends JFrame {
 	class OpLevel {
 		int L = 1;
+		String Op;
+		
+		public OpLevel(String Operation) {
+			// TODO Auto-generated constructor stub
+			this.Op = Operation;
+		}
 	}
 
-	OpLevel transLevel = new OpLevel();
+	OpLevel transLevel = new OpLevel("Resize");
+	OpLevel scaleLevel = new OpLevel("Scale");
+	OpLevel rotationLevel = new OpLevel("Rotate");
 
 	DrawPanel drawPanel;
-	ControlPanel controlPanel;
-	JPanel buttonsPanel;
+	JPanel controlPanel;
 
 	MFrame() {
 		drawPanel = new DrawPanel();
-		controlPanel = new ControlPanel();
-		buttonsPanel = new JPanel(new GridLayout(2, 2));
+
+		controlPanel = new JPanel(new GridLayout(3, 1));
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		BorderLayout layout = new BorderLayout();
 		this.getContentPane().setLayout(layout);
 		
-		addControlButtons();
+		createControlPanel();
 
-		this.add(buttonsPanel, BorderLayout.EAST);
+		this.add(controlPanel, BorderLayout.EAST);
 		this.add(drawPanel, BorderLayout.CENTER);
 
 		this.pack();
@@ -37,7 +43,7 @@ public class MFrame extends JFrame {
 
 	public void modifyLevel(OpLevel level, boolean op) {
 		if (op) {
-			if (level.L >= 50)
+			if (level.L >= 5)
 				return;
 			level.L++;
 		} else {
@@ -55,30 +61,14 @@ public class MFrame extends JFrame {
 		drawPanel.repaint();
 	}
 	
-	public void addControlButtons() {
-		JButton addTranslation = new JButton("+");
-		addTranslation.addActionListener(e -> {
-			btnOperation("Resize", true);
-		});
-		JButton subsTranslation = new JButton("-");
-		subsTranslation.addActionListener(e -> {
-			btnOperation("Resize", false);
-		});
-		JButton addScale= new JButton("+ S");
-		addScale.addActionListener(e -> {
-			btnOperation("Scale", true);
-		});
-		JButton subScale= new JButton("- S");
-		subScale.addActionListener(e -> {
-			btnOperation("Scale", false);
-		});
-
-
-		buttonsPanel.add(addTranslation);
-		buttonsPanel.add(subsTranslation);
-		buttonsPanel.add(addScale);
-		buttonsPanel.add(subScale);
-
+	public void createControlPanel() {
+		TransFormControllerPanel resize = new TransFormControllerPanel(drawPanel,transLevel);
+		TransFormControllerPanel scale = new TransFormControllerPanel(drawPanel,scaleLevel);
+		TransFormControllerPanel rotate = new TransFormControllerPanel(drawPanel,rotationLevel);
+		controlPanel.add(resize);
+		controlPanel.add(scale);
+		controlPanel.add(rotate);
+	
 		
 	}
 
