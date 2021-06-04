@@ -14,6 +14,7 @@ public class TransFormControllerPanel extends JPanel {
 
 
 	public TransFormControllerPanel(DrawPanel drawPanel, OpLevel oplevel) {
+	//	this.setLayout(new GridLayout(2, 1));
 		this.setLayout(new GridLayout(2, 1));
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setLayout(new GridLayout(1, 3));

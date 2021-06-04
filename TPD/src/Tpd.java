@@ -10,19 +10,34 @@ public class Tpd {
 		MFrame mframe =   new MFrame();
 
 
-		SwingUtilities.updateComponentTreeUI(mframe);
-		SwingUtilities.updateComponentTreeUI(mframe);
-		
-    //(mframe);
 	}
 	
 	  public static void setNativeLAF() {
 	        // Native L&F
 	        try {
-	           	UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-	        } catch (Exception e) {
-	            System.out.println("Unable to set native look and feel: " + e);
-	        }
+	        	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	        	System.out.print(UIManager.getSystemLookAndFeelClassName());
+	          // 	UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+	        } 
+	            catch (UnsupportedLookAndFeelException e) {
+	                // handle exception
+	            	System.out.print("Unsuported Look and feel error"+e);
+	             }
+	             catch (ClassNotFoundException e) {
+	                // handle exception
+	            		System.out.print("Class not found error"+e);
+	   	             
+	             }
+	             catch (InstantiationException e) {
+	            		System.out.print("Instatiation error"+e);
+	   	             
+	             }
+	             catch (IllegalAccessException e) {
+	            		System.out.print("Ilegal acces error"+e);
+	   	             
+	                // handle exception
+	             }
+	                 
 	    }
 	
 	
