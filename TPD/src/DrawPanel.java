@@ -1,5 +1,9 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class DrawPanel extends JPanel {
@@ -7,6 +11,7 @@ public class DrawPanel extends JPanel {
 	int sqrX = 300;
 	int sqrY = 300;
 	int sqrSize =20;
+	//BufferedImage image;
 	Square sqr = new Square(sqrY, sqrX, sqrSize);
 
 	DrawPanel() {
@@ -14,7 +19,8 @@ public class DrawPanel extends JPanel {
 		this.setPreferredSize(new Dimension(700, 700));
 		this.setBackground(Color.WHITE);
 	//	this.setBackground(Color.WHITE);
-
+	
+		
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -22,7 +28,8 @@ public class DrawPanel extends JPanel {
 		super.paintComponent(g);
 
 		Graphics2D g2D = (Graphics2D) g;
-
+		
+		
 		// g2D.drawImage(image, 0, 0, null);
 		
 		g2D.setPaint(Color.blue);
@@ -30,6 +37,8 @@ public class DrawPanel extends JPanel {
 		g2D.setStroke(new BasicStroke(stroke_size));
 
 		drawSquare(g2D);
+		
+		g2D.dispose();
 
 	}
 
