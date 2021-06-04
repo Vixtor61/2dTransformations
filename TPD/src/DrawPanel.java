@@ -7,8 +7,10 @@ public class DrawPanel extends JPanel {
 	Square sqr = new Square(200, 200, 5);
 
 	DrawPanel() {
-
+		
 		this.setPreferredSize(new Dimension(700, 700));
+		this.setBackground(Color.WHITE);
+	//	this.setBackground(Color.WHITE);
 
 	}
 
@@ -19,10 +21,11 @@ public class DrawPanel extends JPanel {
 		Graphics2D g2D = (Graphics2D) g;
 
 		// g2D.drawImage(image, 0, 0, null);
-
+		
 		g2D.setPaint(Color.blue);
 
 		g2D.setStroke(new BasicStroke(stroke_size));
+
 		drawSquare(g2D);
 
 	}
