@@ -9,23 +9,18 @@ public class TransFormControllerPanel extends JPanel {
 	SuperDuperButton addLevel;
 	SuperDuperButton subLevel;
 	DrawPanel drawPanel;
-	MFrame.OpLevel transLevel;
+	OpLevel transLevel;
 	JLabel levelLabel; //create a label
-	
-	
 
 
-
-
-
-	public TransFormControllerPanel(DrawPanel drawPanel, MFrame.OpLevel oplevel) {
+	public TransFormControllerPanel(DrawPanel drawPanel, OpLevel oplevel) {
 		this.setLayout(new GridLayout(2, 1));
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setLayout(new GridLayout(1, 3));
 		this.drawPanel = drawPanel;
 		this.transLevel = oplevel;
 
-		JLabel label = new JLabel(oplevel.Op,SwingConstants.CENTER); //create a label
+		JLabel label = new JLabel(""+oplevel.Op,SwingConstants.CENTER); //create a label
 	
 		levelLabel = new JLabel(""+oplevel.L,SwingConstants.CENTER);
 	
@@ -48,7 +43,7 @@ public class TransFormControllerPanel extends JPanel {
 		
 	}
 
-	public void btnOperation(String option, boolean op) {
+	public void btnOperation(Operation option, boolean op) {
 		
 		transLevel.modifyLevel(op);
 		levelLabel.setText(""+transLevel.L);
@@ -58,7 +53,7 @@ public class TransFormControllerPanel extends JPanel {
 		drawPanel.repaint();
 	}
 
-	public void modifyLevel(MFrame.OpLevel level, boolean op) {
+	public void modifyLevel(OpLevel level, boolean op) {
 		if (op) {
 			if (level.L >= 5)
 				return;

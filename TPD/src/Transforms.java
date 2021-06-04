@@ -2,9 +2,9 @@ import java.lang.Math;
 public class Transforms {
 
 	public void resize(Structs.Cordinate c, int a, int b) {
-		int[] x = { c.x, c.y, 1 };
-		int[] r = { 1, 1, 1 };
-		int[][] trans = new int[3][3];
+		double[] x = { c.x, c.y, 1 };
+		double[] r = { 1, 1, 1 };
+		double[][] trans = new double[3][3];
 		trans[0][0] = 1;
 		trans[0][2] = a;
 		trans[1][1] = 1;
@@ -16,10 +16,10 @@ public class Transforms {
 
 	}
 
-	public void rescale(Structs.Cordinate c, int n) {
-		int[] x = { c.x, c.y, 1 };
-		int[] r = { 1, 1, 1 };
-		int[][] trans = new int[3][3];
+	public void rescale(Structs.Cordinate c, double n) {
+		double[] x = { c.x, c.y, 1 };
+		double[] r = { 1, 1, 1 };
+		double[][] trans = new double[3][3];
 		trans[0][0] = n;
 		trans[1][1] = n;
 		trans[2][2] = 1;
@@ -38,8 +38,8 @@ public class Transforms {
 		trans[2][2] = 1;
 		
 		Math.cos(n);
-		c.x = (int)(x[0] * trans[0][0] + x[1] * trans[0][1]  );
-		c.y = (int)(x[0] * trans[1][0] + x[1] * trans[1][1]  );
+		c.x = (x[0] * trans[0][0] + x[1] * trans[0][1]  );
+		c.y = (x[0] * trans[1][0] + x[1] * trans[1][1]  );
 	
 	}
 }

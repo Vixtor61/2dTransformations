@@ -1,10 +1,10 @@
 
 public class Structs {
 	static class Cordinate {
-		int x;
-		int y;
+		double x;
+		double y;
 		
-		public Cordinate(int x,int y) {
+		public Cordinate(double x,double y) {
 			this.x= x;
 			this.y=y;
 		}

@@ -26,23 +26,23 @@ public class Square {
 		}
 	}
 
-	public void transFormSquare(double a, String op) {
+	public void transFormSquare(double a, Operation op) {
 
 		switch (op) {
-		case "Resize": {
+		case TRANSLATE: {
 			for (int i = 0; i < N_OF_VERTICES; i++) {
 				trans.resize(cords[i], (int)a, (int)a);
 			}
 			break;
 		}
-		case "Scale": {
+		case SCALE: {
 			for (int i = 0; i < N_OF_VERTICES; i++) {
-				trans.rescale(cords[i], (int)a);
+				trans.rescale(cords[i], a);
 			}
 			printCords();
 			break;
 		}
-		case "Rotate": {
+		case ROTATE: {
 			//int teta = (a + a) / a;
 			for (int i = 0; i < N_OF_VERTICES; i++) {
 
