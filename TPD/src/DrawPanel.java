@@ -11,15 +11,20 @@ public class DrawPanel extends JPanel {
 	int sqrX = 300;
 	int sqrY = 300;
 	int sqrSize =20;
-	//BufferedImage image;
+	BufferedImage image;
 	Square sqr = new Square(sqrY, sqrX, sqrSize);
 
 	DrawPanel() {
 		
 		this.setPreferredSize(new Dimension(700, 700));
 		this.setBackground(Color.WHITE);
-	//	this.setBackground(Color.WHITE);
-	
+		  try {
+              image = ImageIO.read( getClass().getClassLoader().getResourceAsStream("akio.jpg"));
+
+          } catch (IOException ex) {
+              ex.printStackTrace();
+          }
+
 		
 	}
 	@Override
@@ -28,9 +33,10 @@ public class DrawPanel extends JPanel {
 		super.paintComponent(g);
 
 		Graphics2D g2D = (Graphics2D) g;
+		if (image != null) {
+            g2D.drawImage(image, 0,0,this.getWidth(), this.getHeight(), this);
+        }
 		
-		
-		// g2D.drawImage(image, 0, 0, null);
 		
 		g2D.setPaint(Color.blue);
 
