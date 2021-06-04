@@ -1,5 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -35,7 +38,11 @@ public class MFrame extends JFrame {
 
 		this.add(controlPanel, BorderLayout.EAST);
 		this.add(drawPanel, BorderLayout.CENTER);
-
+		SuperDuperButton resetSqr = new SuperDuperButton("Reset");
+		resetSqr.addActionListener(e -> {
+			drawPanel.resetSqr();
+		});
+		this.add(resetSqr,BorderLayout.PAGE_END);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);

@@ -4,7 +4,10 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 	int stroke_size = 2;
-	Square sqr = new Square(200, 200, 20);
+	int sqrX = 300;
+	int sqrY = 300;
+	int sqrSize =20;
+	Square sqr = new Square(sqrY, sqrX, sqrSize);
 
 	DrawPanel() {
 		
@@ -32,6 +35,10 @@ public class DrawPanel extends JPanel {
 
 	public void increaseStroke() {
 		this.stroke_size += 10;
+	}
+	public void resetSqr() {
+		this.sqr = new Square(sqrY, sqrX, sqrSize);
+		this.repaint();
 	}
 
 	public void drawSquare(Graphics2D g2D) {
