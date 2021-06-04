@@ -13,10 +13,10 @@ public class DrawPanel extends JPanel {
 	//	this.setBackground(Color.WHITE);
 
 	}
-
-	public void paint(Graphics g) {
-
-		super.paint(g);
+	@Override
+	protected void paintComponent(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paintComponent(g);
 
 		Graphics2D g2D = (Graphics2D) g;
 

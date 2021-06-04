@@ -7,6 +7,7 @@ public class Tpd {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		setNativeLAF();
+		System.setProperty("awt.useSystemAAFontSettings","on");
 		MFrame mframe =   new MFrame();
 
 
